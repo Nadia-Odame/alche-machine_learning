@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Defines a function that calculates the shape of a matrix."""
+"""A module for calculating the shape of a matrix."""
 
 
 def matrix_shape(matrix):
-    """Return the shape of a matrix."""
-    if isinstance(matrix, list):
-        return [len(matrix)] + matrix_shape(matrix[0]) if matrix else [0]
-    return []
+    """Calculate the shape of a matrix."""
+    if not isinstance(matrix, list):
+        return []
+    if not matrix:
+        return [0]
+    return [len(matrix)] + matrix_shape(matrix[0])
